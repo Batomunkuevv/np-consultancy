@@ -199,8 +199,6 @@ const initAnchors = () => {
 const initAnimations = () => {
     if (!gsap || MAX_MEDIA_1200) return;
 
-    let weWorkForTimeline, whyUaeTimeline;
-
     gsap.registerPlugin(ScrollTrigger);
 
     animateHero();
@@ -236,24 +234,16 @@ const initAnimations = () => {
 
         blocksWithCards.forEach(block => {
             const blockSection = block.closest('section');
+            const blockImagesWrapper = block.querySelector('.block-with-cards__list');
             const blockImages = block.querySelectorAll('.block-with-cards__image');
             const blockCards = block.querySelectorAll('.animation-card');
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: blockSection,
                     start: "top top",
-                    end: `+=7500`,
+                    end: `+=3000`,
                     scrub: 1,
                     pin: true,
-                    onLeave: self => {
-                        let scroll = self.scroll() - (self.end - self.start);
-                        self.kill();
-                        self.scroll(scroll);
-                        tl.progress(1);
-                        ScrollTrigger.refresh();
-                        weWorkForTimeline.progress(0);
-                        whyUaeTimeline.progress(0);
-                    },
                 }
             });
 
@@ -261,15 +251,12 @@ const initAnimations = () => {
 
                 if (i !== 0) {
                     const cardHeight = card.scrollHeight;
-                    const previousCardHeight = blockCards[i - 1].scrollHeight + 8;
-
-                    if (previousCardHeight > cardHeight) {
-                        card.style.height = previousCardHeight + "px";
-                    }
 
                     tl
-                        .fromTo(card, { opacity: 0.5 }, { opacity: 1, marginTop: -previousCardHeight })
+                        .to(card, { opacity: 1, top: i * 30 })
+                        .to(blockCards[i + 1], { opacity: 0.5 }, '<')
                         .to(blockImages[i], { opacity: 1 }, '<')
+                        .to(blockImagesWrapper, { height: cardHeight + i * 30, duration: 0 })
 
                     tl.to({}, 0.5, {})
                 } else {
@@ -284,7 +271,7 @@ const initAnimations = () => {
 
         if (!whyUae) return;
 
-        whyUaeTimeline = gsap.timeline(
+        const tl = gsap.timeline(
             {
                 scrollTrigger: {
                     trigger: whyUae,
@@ -294,7 +281,7 @@ const initAnimations = () => {
             }
         );
 
-        whyUaeTimeline.from(whyUae, { opacity: 0, duration: 1 })
+        tl.from(whyUae, { opacity: 0, duration: 1 })
 
     }
 
@@ -303,7 +290,7 @@ const initAnimations = () => {
 
         if (!weWorkFor) return;
 
-        weWorkForTimeline = gsap.timeline({
+        const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: weWorkFor,
                 start: "top center",
@@ -314,21 +301,21 @@ const initAnimations = () => {
         const weWorkForOddItems = weWorkFor.querySelectorAll('.we-work-for__item:nth-child(odd)');
         const weWorkForEvenItems = weWorkFor.querySelectorAll('.we-work-for__item:nth-child(even)');
 
-        weWorkForTimeline.from(weWorkForTitle, { opacity: 0, duration: 1 })
+        tl.from(weWorkForTitle, { opacity: 0, duration: 1 })
 
         weWorkForOddItems.forEach((item, i) => {
             if (i === 0) {
-                weWorkForTimeline.from(item, { opacity: 0, duration: 1 }, "-=0.5")
+                tl.from(item, { opacity: 0, duration: 1 }, "-=0.5")
             } else {
-                weWorkForTimeline.from(item, { opacity: 0, duration: 1 }, "-=1")
+                tl.from(item, { opacity: 0, duration: 1 }, "-=1")
             }
         })
 
         weWorkForEvenItems.forEach((item, i) => {
             if (i === 0) {
-                weWorkForTimeline.from(item, { opacity: 0, duration: 1 })
+                tl.from(item, { opacity: 0, duration: 1 })
             } else {
-                weWorkForTimeline.from(item, { opacity: 0, duration: 1 }, "-=1")
+                tl.from(item, { opacity: 0, duration: 1 }, "-=1")
             }
         })
     }

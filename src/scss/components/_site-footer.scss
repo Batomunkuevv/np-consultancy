@@ -1,0 +1,129 @@
+.site-footer {
+    color: #fff;
+
+    &__wrapper {
+        padding: 60px 75px 60px 24px;
+        background: $colorMain;
+        border-radius: 20px 20px 0 0;
+
+        @media (max-width: 992px) {
+            padding-right: 91px;
+        }
+
+        @media(max-width: 767px){
+            padding-right: 24px;
+        }
+
+        @media(max-width: 576px){
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+    }
+
+    &__body {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 120px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 60px;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        @media(max-width: 576px){
+            margin-bottom: 40px;
+        }
+    }
+
+    &__logo {
+        width: 74px;
+        aspect-ratio: 74/48;
+
+        & img {
+            border-radius: 0;
+        }
+    }
+
+    &__navigation {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        gap: 64px;
+        max-width: 613px;
+
+        @media (max-width: 1200px) {
+            max-width: 520px;
+        }
+
+        @media (max-width: 992px) {
+            max-width: unset;
+            gap: 48px;
+        }
+
+        @media(max-width: 576px){
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    &__menu {
+    }
+
+    &__terms {
+        &-item {
+            &:not(:last-child) {
+                margin-bottom: 19px;
+
+                @media (max-width: 992px) {
+                    margin-bottom: 24px;
+                }
+
+                @media(max-width: 576px){
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    &__term {
+        display: block;
+        width: fit-content;
+        font-weight: 600;
+        border-bottom: 1px solid transparent;
+        transition: all 0.3s ease-in-out 0s;
+
+        &:hover {
+            border-color: #fff;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap-reverse;
+        column-gap: 48px;
+        row-gap: 20px;
+
+        @media (min-width: 767px) {
+            padding-right: 13px;
+        }
+
+        @media (min-width: 1200px) {
+            margin-top: -20px;
+        }
+    }
+
+    &__copyright {
+        margin: 0;
+    }
+
+    &__creator {
+    }
+}

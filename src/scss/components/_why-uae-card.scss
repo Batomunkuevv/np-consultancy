@@ -1,0 +1,65 @@
+.why-uae-card {
+    display: flex;
+    flex-direction: column;
+
+    &.swiper-slide {
+        width: 570px !important;
+        height: unset;
+
+        @media (max-width: 992px) {
+            width: 477px !important;
+        }
+
+        @media(max-width: 576px){
+            width: 100% !important;
+        }
+    }
+
+    &__image {
+        aspect-ratio: 570/300;
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
+
+        @media (max-width: 992px) {
+            aspect-ratio: 477/300;
+        }
+
+        @media(max-width: 576px){
+            aspect-ratio: 320/210;
+        }
+
+        & img {
+            border-radius: 0;
+        }
+    }
+
+    &__content {
+        padding: 24px 22px;
+        flex: 1;
+        border-radius: 0 0 20px 20px;
+        border: 2px solid $colorIcons;
+        border-top: unset;
+
+        @media(max-width: 576px){
+            padding-bottom: 29px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 20px;
+
+        @media(max-width: 576px){
+            font-size: 26px;
+            line-height: 122%;
+        }
+
+        & br {
+            display: inline;
+        }
+    }
+
+    &__text {
+        max-width: 420px;
+        line-height: 125%;
+    }
+}

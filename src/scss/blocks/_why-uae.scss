@@ -1,0 +1,52 @@
+.why-uae {
+    &__top {
+        margin-bottom: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 64px;
+
+        @media(max-width: 767px){
+            margin-bottom: 40px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__arrows {
+        flex: none;
+        display: flex;
+        gap: 24px;
+
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &__arrow {
+    }
+
+    &__slider {
+        overflow: visible !important;
+
+        &-wrapper {
+            transition: all 1s cubic-bezier(0.5, 0.85, 0.32, 1.275) !important;
+        }
+
+        &-pagination {
+            margin-top: 37px;
+            position: static;
+            height: 12px;
+            --swiper-pagination-bullet-size: 12px;
+            --swiper-theme-color: #0E3975;
+            --swiper-pagination-bullet-inactive-color: #C0C2CB;
+            --swiper-pagination-bullet-inactive-opacity: 1;
+
+            @media (min-width: 767px) {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@use "sass:math";
+
+//*<Base>=======================================================================================================
+
+@import "base/function";
+@import "base/animation";
+@import "base/variables";
+@import "base/mixins";
+@import "base/reset";
+@import "base/common";
+@import "base/main-grid";
+
+//*</Base>=====================================================================================================
+
+//*<Components>================================================================================================
+
+@import "components/animation-card";
+@import "components/arrow";
+@import "components/button";
+@import "components/why-uae-card";
+@import "components/menu";
+@import "components/menu-footer";
+@import "components/burger";
+@import "components/languages";
+@import "components/site-header";
+@import "components/site-footer";
+@import "components/block-with-cards";
+
+//*</Components>=================================================================================================
+
+//*<Blocks>=================================================================================================
+
+@import "blocks/hero";
+@import "blocks/services";
+@import "blocks/we-work-for";
+@import "blocks/why-uae";
+@import "blocks/want-use";
+@import "blocks/faqs";
+@import "blocks/has-request";
+
+//*</Blocks>=================================================================================================

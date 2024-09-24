@@ -1,0 +1,20 @@
+.menu-footer {
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__link {
+        display: block;
+        width: fit-content;
+        font-weight: 600;
+        line-height: 120%;
+        border-bottom: 1px solid transparent;
+        transition: all 0.3s ease-in-out 0s;
+
+        &:hover {
+            border-color: #fff;
+        }
+    }
+}

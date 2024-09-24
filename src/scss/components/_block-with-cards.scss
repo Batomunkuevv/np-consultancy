@@ -1,0 +1,96 @@
+.block-with-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: dense;
+    align-items: start;
+    gap: 24px;
+
+    @media (max-width: 1200px) {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 60px;
+    }
+
+    @media (max-width: 767px) {
+        gap: 40px;
+    }
+
+    &--reverse {
+        & .block-with-cards__left {
+            grid-column: 2/3;
+        }
+    }
+
+    &__left {
+    }
+
+    &__images {
+        margin-bottom: 40px;
+        aspect-ratio: 688/520;
+        position: relative;
+
+        @media (max-width: 992px) {
+            aspect-ratio: 728/480;
+        }
+
+        @media (max-width: 576px) {
+            aspect-ratio: 1/1;
+        }
+
+        &:last-child {
+            margin: 0;
+        }
+
+        &--advantages {
+            @media (min-width: 992px) {
+                aspect-ratio: 688/420;
+            }
+        }
+    }
+
+    &__image {
+        position: absolute;
+        inset: 0;
+
+        &:not(:first-child) {
+            @media (min-width: 992px) {
+                opacity: 0;
+            }
+        }
+
+        &:not(:nth-child(2)) {
+            @media (max-width: 992px) {
+                opacity: 0;
+            }
+        }
+
+        &--mobile {
+        }
+    }
+
+    &__button {
+    }
+
+    &__list {
+        @media (max-width: 1200px) and (min-width: 992px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 24px;
+
+            @media (max-width: 1200px) {
+                margin: 0;
+            }
+
+            @media (max-width: 992px) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.button {
+    padding: 21.5px 48px;
+    height: 70px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    font-size: 22px;
+    line-height: 122%;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    background: $colorMain;
+
+    &:hover {
+        background: $colorAction;
+    }
+
+    &:focus {
+        background: $colorAction;
+    }
+
+    &:active {
+        background: $colorAction;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 18px;
+        height: 60px;
+    }
+
+    @media (max-width: 576px) {
+        padding: 21.5px 32px;
+        width: 100%;
+    }
+
+    &--secondary {
+        padding: 14px 48px;
+        height: 48px;
+        background: unset;
+        color: $colorMain;
+        border: 1px solid $colorMain;
+        font-size: 16px;
+        line-height: 122%;
+
+        &:hover {
+            background: $colorMain;
+            color: #fff;
+        }
+
+        &:focus {
+            background: $colorAction;
+            color: #fff;
+        }
+
+        &:active {
+            background: $colorAction;
+            color: #fff;
+        }
+    }
+
+    &:disabled {
+        background: $colorIcons;
+    }
+}

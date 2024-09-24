@@ -1,0 +1,30 @@
+.burger {
+    padding: 18px;
+    width: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: $colorMainLight;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    @media (min-width: 1200px) {
+        display: none;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: $colorMain;
+    }
+
+    &__line {
+        width: 100%;
+        height: 2px;
+        background: $colorMain;
+    }
+}

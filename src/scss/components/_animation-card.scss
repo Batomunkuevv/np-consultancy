@@ -1,0 +1,128 @@
+.animation-card {
+    padding: 24px 22px 22px;
+    border: 2px solid $colorIcons;
+    border-radius: 20px;
+    background: #fff;
+    position: relative;
+    will-change: margin-top;
+
+    @media (max-width: 767px) {
+        padding: 23px 22px 22px 22px;
+    }
+
+    &--advantage {
+        min-height: 240px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (max-width: 767px) {
+            min-height: 256px;
+        }
+    }
+
+    &__top {
+        margin-bottom: 47px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 48px;
+
+        @media (max-width: 767px) {
+            gap: 10px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 0;
+
+        @media (max-width: 767px) {
+            font-size: 26px;
+            line-height: 122%;
+        }
+
+        & br {
+            display: inline;
+
+            @media (max-width: 576px) {
+                display: none;
+            }
+        }
+
+        &--gray {
+            color: $colorFont;
+
+            & span {
+                color: $colorMain;
+            }
+        }
+    }
+
+    &__number {
+        font-size: 30px;
+        line-height: 122%;
+        font-weight: 600;
+        color: $colorIcons;
+
+        @media (max-width: 767px) {
+            font-size: 26px;
+            line-height: 122%;
+        }
+
+        @media (max-width: 576px) {
+            align-self: start;
+        }
+    }
+
+    &__icon {
+        width: 32px;
+        aspect-ratio: 1/1;
+        flex: none;
+
+        @media (max-width: 576px) {
+            align-self: start;
+        }
+    }
+
+    &__content {
+        & br {
+            display: inline;
+
+            @media (max-width: 576px) {
+                display: none;
+            }
+        }
+
+        & p {
+            max-width: 510px;
+        }
+
+        & ul {
+            max-width: 491px;
+
+            & li {
+                padding-left: 24px;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 7px;
+                    left: 9px;
+                    background: $colorFont;
+                    width: 6px;
+                    aspect-ratio: 1/1;
+                    border-radius: 50%;
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 21px;
+
+                    @media (max-width: 767px) {
+                        margin-bottom: 23px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+.want-use {
+    &__body {
+        padding: 80px 181px;
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        min-height: 640px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        @media (max-width: 1200px) {
+            padding: 80px;
+        }
+
+        @media (max-width: 992px) {
+            padding: 60px 25px;
+            justify-content: start;
+            align-items: end;
+            min-height: 825px;
+        }
+
+        @media (max-width: 576px) {
+            padding: 252px 20px 40px;
+            min-height: unset;
+        }
+
+        @media (max-width: 359px) {
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+    }
+
+    &__background {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+
+        @media (max-width: 992px) {
+            background: linear-gradient(-90deg, #001b2e 0%, #051d2e 39%, #011425 58%, #213442 62%, #0d0c07 67%, #1b1b11 84%, #3c3926 91%, #363523 100%);
+        }
+
+        &-image {
+            height: 100%;
+
+            @media (max-width: 576px) {
+                height: 49%;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("../images/want-use/pseudo.png") center / cover no-repeat;
+
+            @media (max-width: 992px) {
+                background: url("../images/want-use/pseudo@768.png") bottom / cover no-repeat;
+                inset: -16px;
+                opacity: 0.94;
+            }
+
+            @media (max-width: 576px) {
+                background: url("../images/want-use/pseudo@360.png") center / cover no-repeat;
+            }
+        }
+
+        & img {
+            height: 100%;
+            border-radius: 0;
+        }
+    }
+
+    &__content {
+        max-width: 506px;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 30px;
+        line-height: 122%;
+
+        @media (max-width: 767px) {
+            font-size: 22px;
+            line-height: 122%;
+        }
+    }
+
+    &__text {
+        margin-bottom: 40px;
+
+        @media (max-width: 576px) {
+            line-height: 125%;
+        }
+    }
+
+    &__button {
+    }
+}

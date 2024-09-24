@@ -1,0 +1,27 @@
+.arrow {
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    color: $colorMain;
+    transition: all 0.3s ease-in-out 0s;
+
+    &.swiper-button-disabled {
+        color: $colorIcons;
+        pointer-events: none;
+    }
+
+    &:hover{
+        color: $colorAction;
+    }
+
+    &--prev {
+    }
+
+    &--next {
+        transform: rotate(180deg);
+    }
+}

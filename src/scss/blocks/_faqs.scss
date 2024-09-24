@@ -1,0 +1,93 @@
+.faqs {
+    &__title {
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+
+        @media (max-width: 992px) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 767px) {
+            gap: 16px;
+        }
+    }
+
+    &__list {
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 24px;
+
+            @media (max-width: 767px) {
+                margin-bottom: 16px;
+            }
+        }
+
+        &-body {
+            padding: 31px 24px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid $colorIcons;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out 0s;
+
+            @media (min-width: 992px) {
+                min-height: 120px;
+            }
+
+            &:hover {
+                border-color: $colorMain;
+            }
+
+            &.is-active {
+                & .faqs__item-question {
+                    &::after {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+
+        &-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            font-size: 16px;
+            line-height: 122%;
+            color: $colorFont;
+
+            @media (max-width: 768px) {
+                gap: 24px;
+            }
+
+            &:after {
+                content: "";
+                width: 24px;
+                aspect-ratio: 1/1;
+                flex: none;
+                background: url("../images/icons/arrow-more.svg") 0 0 / 100% no-repeat;
+                transition: all 0.3s ease-in-out 0s;
+            }
+        }
+
+        &-wrapper {
+            height: 0;
+            will-change: height;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        &-answer {
+            padding-top: 24px;
+        }
+    }
+}

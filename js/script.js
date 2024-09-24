@@ -234,7 +234,7 @@ const initAnimations = () => {
 
         blocksWithCards.forEach(block => {
             const blockSection = block.closest('section');
-            const blockImagesWrapper = block.querySelector('.block-with-cards__list');
+            const blockCardsWrapper = block.querySelector('.block-with-cards__list');
             const blockImages = block.querySelectorAll('.block-with-cards__image');
             const blockCards = block.querySelectorAll('.animation-card');
             const tl = gsap.timeline({
@@ -247,22 +247,40 @@ const initAnimations = () => {
                 }
             });
 
+            setLastCardHeight();
+
             blockCards.forEach((card, i) => {
 
                 if (i !== 0) {
                     const cardHeight = card.scrollHeight;
 
                     tl
-                        .to(card, { opacity: 1, top: i * 30 })
+                        .to(card, { opacity: 1, top: i * 28 })
                         .to(blockCards[i + 1], { opacity: 0.5 }, '<')
                         .to(blockImages[i], { opacity: 1 }, '<')
-                        .to(blockImagesWrapper, { height: cardHeight + i * 30, duration: 0 })
+                        .to(blockImages[i - 1], { opacity: 0 }, '<')
+                        .to(blockCardsWrapper, { height: cardHeight + i * 28, duration: 0 })
 
                     tl.to({}, 0.5, {})
                 } else {
                     tl.to({}, 0.5, {})
                 }
             })
+
+            function setLastCardHeight() {
+                const blockImagesWrapper = block.querySelector('.block-with-cards__images');
+                const lastCard = blockCards[blockCards.length - 1];
+                const lastCardHeight = lastCard.scrollHeight;
+                const cardsGaps = (blockCards.length - 1) * 28;
+                const blockImagesWrapperHeight = blockImagesWrapper.scrollHeight;
+                const allCardsHeight = cardsGaps + lastCardHeight;
+
+                if (allCardsHeight < blockImagesWrapperHeight) {
+                    const needleHeight = blockImagesWrapperHeight - cardsGaps;
+
+                    lastCard.style.height = needleHeight + "px";
+                }
+            }
         })
     }
 

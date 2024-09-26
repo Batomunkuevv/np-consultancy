@@ -259,6 +259,8 @@ const initAnimations = () => {
             setLastCardHeight();
 
             blockCards.forEach((card, i) => {
+                if (i === 0) return;
+
                 const cardHeight = card.scrollHeight;
 
                 tl

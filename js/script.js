@@ -247,11 +247,6 @@ const initAnimations = () => {
                     end: `+=${blockCards.length - 1}000`,
                     scrub: 1,
                     pin: true,
-                    snap: {
-                        snapTo: 1 / blockCards.length,
-                        delay: 0,
-                        duration: 0,
-                    },
                     invalidateOnRefresh: true,
                 }
             });

@@ -244,7 +244,7 @@ const initAnimations = () => {
                 scrollTrigger: {
                     trigger: blockSection,
                     start: "top top",
-                    end: `+=${blockCards.length}000`,
+                    end: `+=${blockCards.length - 1}000`,
                     scrub: 1,
                     pin: true,
                     snap: {

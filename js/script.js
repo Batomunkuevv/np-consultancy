@@ -238,33 +238,35 @@ const initAnimations = () => {
             const blockImages = block.querySelectorAll('.block-with-cards__image');
             const blockCards = block.querySelectorAll('.animation-card');
             const tl = gsap.timeline({
+                defaults: {
+                    ease: "none",
+                },
                 scrollTrigger: {
                     trigger: blockSection,
                     start: "top top",
-                    end: `+=3000`,
+                    end: `+=${blockCards.length}000`,
                     scrub: 1,
                     pin: true,
+                    snap: {
+                        snapTo: 1 / blockCards.length,
+                        delay: 0,
+                        duration: 0,
+                    },
+                    invalidateOnRefresh: true,
                 }
             });
 
             setLastCardHeight();
 
             blockCards.forEach((card, i) => {
+                const cardHeight = card.scrollHeight;
 
-                if (i !== 0) {
-                    const cardHeight = card.scrollHeight;
-
-                    tl
-                        .to(card, { opacity: 1, top: i * 28 })
-                        .to(blockCards[i + 1], { opacity: 0.5 }, '<')
-                        .to(blockImages[i], { opacity: 1 }, '<')
-                        .to(blockImages[i - 1], { opacity: 0 }, '<')
-                        .to(blockCardsWrapper, { height: cardHeight + i * 28, duration: 0 })
-
-                    tl.to({}, 0.5, {})
-                } else {
-                    tl.to({}, 0.5, {})
-                }
+                tl
+                    .to(card, { opacity: 1, top: i * 28 })
+                    .to(blockCards[i + 1], { opacity: 0.5 }, '<')
+                    .to(blockImages[i], { opacity: 1 }, '<')
+                    .to(blockImages[i - 1], { opacity: 0 }, '<')
+                    .to(blockCardsWrapper, { height: cardHeight + i * 28, duration: 0 })
             })
 
             function setLastCardHeight() {

@@ -259,16 +259,18 @@ const initAnimations = () => {
             setLastCardHeight();
 
             blockCards.forEach((card, i) => {
-                if (i === 0) return;
+                if (i !== 0) {
+                    const cardHeight = card.scrollHeight;
 
-                const cardHeight = card.scrollHeight;
-
-                tl
-                    .to(card, { opacity: 1, top: i * 28 })
-                    .to(blockCards[i + 1], { opacity: 0.5 }, '<')
-                    .to(blockImages[i], { opacity: 1 }, '<')
-                    .to(blockImages[i - 1], { opacity: 0 }, '<')
-                    .to(blockCardsWrapper, { height: cardHeight + i * 28, duration: 0 })
+                    tl
+                        .to(card, { opacity: 1, top: i * 28 })
+                        .to(blockCards[i + 1], { opacity: 0.5 }, '<')
+                        .to(blockImages[i], { opacity: 1 }, '<')
+                        .to(blockImages[i - 1], { opacity: 0 }, '<')
+                        .to(blockCardsWrapper, { height: cardHeight + i * 28, duration: 0 })
+                } else {
+                    tl.to({}, 0.1, {})
+                }
             })
 
             function setLastCardHeight() {
